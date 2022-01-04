@@ -1,5 +1,5 @@
 {
-	"description": "The CodeIgniter framework",
+	"description": "The Improved CodeIgniter framework",
 	"name": "codeigniter/framework",
 	"type": "project",
 	"homepage": "https://codeigniter.com",
@@ -11,13 +11,26 @@
 		"source": "https://github.com/bcit-ci/CodeIgniter"
 	},
 	"require": {
-		"php": ">=5.3.7"
+		"php": ">=5.3.7",
+		"vlucas/phpdotenv": "^5.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
 	"require-dev": {
-		"mikey179/vfsStream": "1.1.*",
+		"mikey179/vfsstream": "1.1.*",
 		"phpunit/phpunit": "4.* || 5.*"
+	},
+	"scripts": {
+		"post-root-package-install": [
+			"@php -r \"file_exists('vendor/index.html') || copy('system/index.html', 'vendor/index.html');\"",
+			"@php -r \"file_exists('vendor/.htaccess') || copy('system/.htaccess', 'vendor/.htaccess');\"",
+			"@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+		],
+		"post-install-cmd": [
+			"@php -r \"file_exists('vendor/index.html') || copy('system/index.html', 'vendor/index.html');\"",
+			"@php -r \"file_exists('vendor/.htaccess') || copy('system/.htaccess', 'vendor/.htaccess');\"",
+			"@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+		]
 	}
 }
