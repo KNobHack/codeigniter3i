@@ -56,7 +56,11 @@ if (!function_exists('env')) {
 	 */
 	function env($var, $default = '')
 	{
-		return (isset($_ENV[$var])) ? $_ENV[$var] : $default;
+		if (isset($_ENV[$var])) {
+			$val = $_ENV[$var];
+			return (strtolower($val) === 'true') ? true : $val; // for boolean value
+		}
+		return $default;
 	}
 }
 
