@@ -36,6 +36,30 @@
  * @filesource
  */
 
+ 
+/*
+ * ---------------------------------------------------------------
+ *  PHP Dotenv
+ * ---------------------------------------------------------------
+ */
+
+require_once('vendor/autoload.php');
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+if (!function_exists('env')) {
+	/**
+	 * Function env
+	 * 
+	 * Fungsi buatan untuk mengambil variabel enviroment
+	 */
+	function env($var, $default = '')
+	{
+		return (isset($_ENV[$var])) ? $_ENV[$var] : $default;
+	}
+}
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -53,7 +77,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : env('CI_ENV','development'));
 
 /*
  *---------------------------------------------------------------
@@ -97,7 +121,7 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = 'system';
+	$system_path = env('SYSTEM_PATH', 'system');
 
 /*
  *---------------------------------------------------------------
@@ -114,7 +138,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'application';
+	$application_folder = env('APPLICATION_FOLDER', 'application');
 
 /*
  *---------------------------------------------------------------
@@ -129,7 +153,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$view_folder = '';
+	$view_folder = env('VIEW_FOLDER', '');
 
 
 /*
