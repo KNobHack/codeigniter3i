@@ -11,3 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+$hook['post_controller'][] = array(
+	'class'    => 'PreviousUri',
+	'function' => 'set',
+	'filename' => 'PreviousUri.php',
+	'filepath' => 'hooks',
+	'params'   => 'previous_url'
+);
