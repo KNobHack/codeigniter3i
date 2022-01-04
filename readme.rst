@@ -10,20 +10,19 @@ interface and logical structure to access these libraries. CodeIgniter lets
 you creatively focus on your project by minimizing the amount of code needed
 for a given task.
 
-*******************
-Release Information
-*******************
+###################
+What is CodeIgniter3i
+###################
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Codeigniter3i is collection of libraries with additional features from Codeigniter 4
+and other PHP frameworks.
 
-**************************
-Changelog and New Features
-**************************
+###################
+Why CodeIgniter3i?
+###################
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Many project is already using codeigniter 3 and migrating to codeigniter 4 is too hard to accomplish.
+This repository provide features from Codeigniter 4 and other framework without changing the codebase.
 
 *******************
 Server Requirements
@@ -41,6 +40,10 @@ Installation
 
 Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
 of the CodeIgniter User Guide.
+
+In additional, this repository using composer.
+Make sure to install composer dependencies.
+```composer install```
 
 *******
 License
@@ -61,10 +64,3 @@ Resources
 
 Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
 or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
